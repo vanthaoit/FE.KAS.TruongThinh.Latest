@@ -1,0 +1,89 @@
+<div class="navigation">
+  <div class="">
+    <nav class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header nav_2">
+        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse"
+          data-target="#navigation-dropdown-tabs">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navigation-dropdown-tabs">
+        <ul class="nav navbar-nav">
+          
+          <ng-container *ngFor="let menuChild of _menuService; let i=index">
+            <li *ngIf="menuChild.hasChild === null"><a (click)="switchMenu()" href="/portal/{{menuChild.url}}" data-title="{{menuChild.name}}">{{menuChild.name}}</a></li>
+            <li *ngIf="menuChild.hasChild !== null" class="dropdown">
+              <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-title="service" data-toggle="dropdown">{{menuChild.name}} <b class="caret"></b></a>
+              <ul class="dropdown-menu multi-column columns-3 menu-position data-content-wrapper">
+                <div class="row">
+                  <ng-container *ngFor="let item of _dataCategories; let j = index">
+                    
+                    <div *ngIf="item.menuId ==menuChild.id" class="dropdown">
+                      <ul *ngIf="item.productCategories.length ==0" class="single-column">
+                        <li>
+                          <h6><a href="/portal/dich-vu/{{item.alias}}">{{item.name}}</a></h6>
+                        </li>
+                      </ul>
+                      <ul *ngIf="item.productCategories.length !=0" class="multi-column-dropdown">
+                        <h6><span>{{item.name}}</span><b class="caret"></b></h6>
+                        <div class="group-sub-menu">
+                          <li *ngFor="let item2 of item.productCategories">
+                            <a href="/portal/dich-vu/{{item2.alias}}">{{item2.name}}</a>
+                          </li>
+                        </div>
+                        
+                      </ul>
+                    </div>
+                  </ng-container>
+                  
+                  <!-- <div *ngFor="let item of _dataCategories;" class="col-sm-4">
+                    <ul *ngIf="item.productCategories.length ==0" class="single-column">
+                      <li>
+                        <h6><a href="{{_menuData[2].url}}/danh-muc/{{item.alias}}">{{item.name}}</a></h6>
+                      </li>
+                    </ul>
+                    <ul *ngIf="item.productCategories.length !=0" class="multi-column-dropdown">
+                      <h6><a href="{{_menuData[2].url}}/danh-muc/{{item.alias}}">{{item.name}}</a></h6>
+                      <li *ngFor="let item2 of item.productCategories">
+                        <a href="{{_menuData[2].url}}/danh-muc/{{item.alias}}">{{item2.name}}</a>
+                      </li>
+                    </ul>
+                  </div> -->
+     
+                  <div class="clearfix"></div>
+                </div>
+              </ul>
+            </li>
+          </ng-container>
+          
+       
+          
+     
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="clearfix"> </div>
+<!-- breadcrumbs -->
+<div class="breadcrumb_dress">
+  <div class="">
+    <ul>
+      <li>
+        <a href="index.html">
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        </a>
+        <i class="glyphicon glyphicon-hand-right"></i>
+      </li>
+ 
+      <li *ngFor="let item of _currentBreabcrumb.split(',');last as isLast">{{item}}<i *ngIf="!isLast" class="glyphicon glyphicon-hand-right"></i></li>
+      
+    </ul>
+  </div>
+</div>
+
+  

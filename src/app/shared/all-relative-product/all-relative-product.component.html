@@ -1,0 +1,77 @@
+<div class="tm-section-wrap">
+    <section id="gallery" class="tm-section">
+      <h2 class="tm-text-primary">HOẠT ĐỘNG TIÊU BIỂU NHẤT</h2>
+      <hr class="mb-5" />
+      <div class="paging-gallery row"></div>
+      <ul class="tm-gallery-links" style="display: none;">
+        <li>
+          <a
+            href="javascript:void(0);"
+            class="active tm-gallery-link"
+            data-filter="*"
+          >
+            <i class="fas fa-layer-group tm-gallery-link-icon"></i>
+            Tất cả
+          </a>
+        </li>
+        <li>
+          <a
+            href="javascript:void(0);"
+            class="tm-gallery-link"
+            data-filter="portrait"
+          >
+            <i class="fas fa-portrait tm-gallery-link-icon"></i>
+            Vật liệu lọc & Hóa chất
+          </a>
+        </li>
+        <li>
+          <a
+            href="javascript:void(0);"
+            class="tm-gallery-link"
+            data-filter="nature"
+          >
+            <i class="fas fa-leaf tm-gallery-link-icon"></i>
+            Sản phẩm
+          </a>
+        </li>
+        <li>
+          <a
+            href="javascript:void(0);"
+            class="tm-gallery-link"
+            data-filter="animal"
+          >
+            <i class="fas fa-paw tm-gallery-link-icon"></i>
+            Xử lý nước thải
+          </a>
+        </li>
+        <li>
+          <a
+            href="javascript:void(0);"
+            class="tm-gallery-link"
+            data-filter="building"
+          >
+            <i class="far fa-building tm-gallery-link-icon"></i>
+            Xử lý nước cấp
+          </a>
+        </li>
+      </ul>
+      <div class="tm-gallery">
+        <ng-container *ngFor="let product of _products; let i = index">
+          <figure class="effect-honey tm-gallery-item portrait">
+            <img src="{{product.image}}" alt="Image" />
+            <figcaption>
+              <div class="quick-information">
+                <h4>{{product.name}}</h4>
+                <div [innerHTML]="product.description"></div>
+              </div>
+              
+              <a href="/portal/dich-vu/details/{{product.id}}">View more</a>
+            </figcaption>
+          </figure>
+        </ng-container>
+
+        
+      </div>
+      
+    </section>
+  </div>
