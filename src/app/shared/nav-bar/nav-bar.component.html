@@ -5,7 +5,7 @@
     <ng-container *ngFor="let menuChild of _menuService; let i = index">
       <li *ngIf="menuChild.hasChild === null">
         <a
-          href="/{{ menuChild.target }}/{{ menuChild.url }}"
+          href="/{{ menuChild.target }}/dich-vu/{{ menuChild.url }}"
           data-title="{{ menuChild.name }}"
           ><i class="fa fa-database"></i> {{ menuChild.name }}</a
         >

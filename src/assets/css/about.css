@@ -202,3 +202,10 @@ hr {
     line-height: 2.3em;
     font-weight: 600;
 }
+.about-wrapper p{
+	text-align: justify;
+    line-height: 1.7;
+    font-family: 'Times New Roman', serif;
+    /* text-indent: 0.25in; */
+    font-size: large;
+}
